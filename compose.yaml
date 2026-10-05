@@ -1,0 +1,12 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      ORDERFLOW_API_KEY: "${ORDERFLOW_API_KEY:?Create .env with ORDERFLOW_API_KEY}"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
